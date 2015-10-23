@@ -19,8 +19,9 @@ class Assignment < ActiveRecord::Base
        dependent: :destroy
 
   has_many :test_support_files, :dependent => :destroy
+  accepts_nested_attributes_for :test_support_files, allow_destroy: true
   has_many :test_scripts, :dependent => :destroy
-
+  accepts_nested_attributes_for :test_scripts, allow_destroy: true
 
   # has_many :annotation_categories
   #          -> { order(:position) },
@@ -37,6 +38,7 @@ class Assignment < ActiveRecord::Base
 
   has_many :test_files, dependent: :destroy
   accepts_nested_attributes_for :test_files, allow_destroy: true
+
 
   has_one :assignment_stat, dependent: :destroy
   accepts_nested_attributes_for :assignment_stat, allow_destroy: true

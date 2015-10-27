@@ -35,8 +35,6 @@ class AutomatedTestsController < ApplicationController
 
     # Perform transaction, if errors, none of new config saved
     @assignment.transaction do
-      p "QRT"
-      p assignment_params
       @assignment = process_test_form(@assignment, assignment_params)
       # begin
       #   # Process testing framework form for validation

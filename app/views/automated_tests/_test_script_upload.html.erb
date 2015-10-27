@@ -5,7 +5,6 @@
   I18n.t("automated_tests.script_option.display_option.do_not_display") => "do_not_display"
 } # this is defined and used to validate input in test_script.rb
 %>
-
 <%= form.fields_for :test_scripts, test_script do |f| %>
 <% saved = !f.object.new_record? %>
 <% hide = saved ? 'style="display:none;"' : '' %>
@@ -25,7 +24,7 @@
     <%= link_to_function (saved ? '[+]' : '[-]'), "toggleSettings(this);", :class => "collapse" %>
   </legend>
 
-  <%= f.hidden_field :seq_num, :value => f.object.seq_num, :class => "seqnum" %>
+  <%= f.hidden_field :seq_num, :value => f.object.seq_num || 1.0, :class => "seqnum" %>
 
   <div class="settings_left_side">
     <div class="desc">
